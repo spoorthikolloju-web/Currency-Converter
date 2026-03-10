@@ -1,15 +1,5 @@
 const base_URL="https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
 
-async function setDefaultRate(){
-    const URL_USD = `${base_URL}/usd.json`;
-
-    let res = await fetch(URL_USD);
-    let data = await res.json();
-
-    let rate = data.usd.inr;
-    document.getElementById("rate").innerText = rate.toFixed(2);
-}
-window.addEventListener("load", setDefaultRate);
 
 const dropdown=document.querySelectorAll(".drop-down select");
 
@@ -51,7 +41,16 @@ const updateFlag=(element)=>{
     img.src=newSrc;
 }
 
+async function setDefaultRate(){
+    const URL_USD = `${base_URL}/usd.json`;
 
+    let res = await fetch(URL_USD);
+    let data = await res.json();
+
+    let rate = data.usd.inr;
+    document.getElementById("rate").innerText = rate.toFixed(2);
+}
+window.addEventListener("load", setDefaultRate);
 
 btn .addEventListener("click",async (evt)=>{
     evt.preventDefault();
