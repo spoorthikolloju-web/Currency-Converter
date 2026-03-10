@@ -5,7 +5,8 @@ async function setDefaultRate(){
 
     let res = await fetch(URL_USD);
     let data = await res.json();
-
+     console.log(data);
+console.log(data.usd.inr);
     let rate = data.usd.inr;
 
     document.getElementById("rate").innerText = rate.toFixed(2);
