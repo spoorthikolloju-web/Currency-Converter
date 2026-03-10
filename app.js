@@ -1,8 +1,16 @@
 const base_URL="https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
 
-let rate = data.usd.inr;
+async function setDefaultRate(){
+    const URL_USD = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json";
 
-document.getElementById("rate").innerText = rate.toFixed(2);
+    let res = await fetch(URL_USD);
+    let data = await res.json();
+
+    let rate = data.usd.inr;
+
+    document.getElementById("rate").innerText = rate.toFixed(2);
+}
+window.addEventListener("load", setDefaultRate);
 
 const dropdown=document.querySelectorAll(".drop-down select");
 
