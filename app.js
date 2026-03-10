@@ -1,14 +1,12 @@
 const base_URL="https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
 
 async function setDefaultRate(){
-    const URL_USD = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json";
+    const URL_USD = `${base_URL}/usd.json`;
 
     let res = await fetch(URL_USD);
     let data = await res.json();
-     console.log(data);
-console.log(data.usd.inr);
-    let rate = data.usd.inr;
 
+    let rate = data.usd.inr;
     document.getElementById("rate").innerText = rate.toFixed(2);
 }
 window.addEventListener("load", setDefaultRate);
