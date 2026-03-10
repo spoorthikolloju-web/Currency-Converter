@@ -1,5 +1,9 @@
 const base_URL="https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
 
+let rate = data.usd.inr;
+
+document.getElementById("rate").innerText = rate.toFixed(2);
+
 const dropdown=document.querySelectorAll(".drop-down select");
 
 let i=0;
